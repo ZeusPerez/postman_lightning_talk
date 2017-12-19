@@ -1,0 +1,117 @@
+{
+	"info": {
+		"name": "asturiashacking_demo",
+		"_postman_id": "57c4c993-49a3-7491-5904-4e22ec09769b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "repos_request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.github.com/users/asturiashacking/repos",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"users",
+						"asturiashacking",
+						"repos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "commits_request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "776454be-33db-4d18-9a46-2c2582238518",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData =JSON.parse(responseBody);",
+							"",
+							"var number_commits = pm.response.json().length;",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Format response\", function () {",
+							"   pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Body contain string\", function () {",
+							"    pm.expect(pm.response.json()[0][\"author\"][\"login\"]).to.equal(\"sergioalvz\");",
+							"});",
+							"",
+							"",
+							"pm.globals.set(\"number_commits\", number_commits);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.github.com/repos/asturiashacking/activities/commits?author={{user}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"asturiashacking",
+						"activities",
+						"commits"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "{{user}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "12a8677f-8b98-49f3-be1a-c679b55dd466",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7385365b-86fd-44ca-b69f-40e247fe3139",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
