@@ -9,6 +9,7 @@ Postman is a GUI tool that provide an easy way to make HTTP request. It's a free
 
 ### Content of the lightning talk
 
-1. [API requests](https://www.getpostman.com/docs/postman/sending_api_requests/requests)
-2. [Test scripts](https://www.getpostman.com/docs/postman/scripts/test_scripts) and [test examples](https://www.getpostman.com/docs/postman/scripts/test_examples).
-3. Running Postman collections with [Newman](https://github.com/postmanlabs/newman).
+1. [API requests](https://www.getpostman.com/docs/postman/sending_api_requests/requests).
+2. [Global variables](https://www.getpostman.com/docs/postman/environments_and_globals/manage_globals).
+3. [Test scripts](https://www.getpostman.com/docs/postman/scripts/test_scripts) and [test examples](https://www.getpostman.com/docs/postman/scripts/test_examples).
+4. Running Postman collections with [Newman](https://github.com/postmanlabs/newman).
